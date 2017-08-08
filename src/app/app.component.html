@@ -1,0 +1,19 @@
+
+<!-- get the names serverCreated from output in cockpit component -->
+<div class="container">
+  <!-- [kyleMessage] needed to pass properties from parent down to child -->
+  <app-cockpit 
+    (serverCreated)="onServerAdded($event)"
+    (blueprintCreated)="onBlueprintAdded($event)"
+    [kyleMessage]="kyleMessage">
+  </app-cockpit>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12">
+      <app-server-element 
+        *ngFor="let serverElement of serverElements"
+        [srvElement]="serverElement"
+        [kyleMessage]="kyleMessage"></app-server-element>
+    </div>
+  </div>
+</div>
